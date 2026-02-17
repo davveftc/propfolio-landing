@@ -1,0 +1,29 @@
+{
+  "headline": "Questions? We've got answers.",
+  "items": [
+    {
+      "question": "When does Propfolio launch?",
+      "answer": "We're targeting Q2 2026. Waitlist members will get first access before we open to the public."
+    },
+    {
+      "question": "What does the 20% lifetime discount include?",
+      "answer": "The first 100 people on the waitlist lock in 20% off all paid plans\u2014forever. It applies automatically when you upgrade after launch."
+    },
+    {
+      "question": "How does the referral program work?",
+      "answer": "After joining the waitlist, you'll receive a unique referral link via email. The 5 people who refer the most waitlist signups by launch day will receive 50% off for life."
+    },
+    {
+      "question": "What property types does Propfolio support?",
+      "answer": "Short-term rentals, long-term residential leases, vacation properties, and commercial units. If you manage it, Propfolio can handle it."
+    },
+    {
+      "question": "Can I manage properties in multiple countries?",
+      "answer": "Absolutely. Propfolio is built for multi-country portfolios with localized currency, language, and compliance support from day one."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. We follow industry-standard encryption and security practices to keep your data safe. More details will be available at launch."
+    }
+  ]
+}

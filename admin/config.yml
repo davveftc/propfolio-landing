@@ -1,0 +1,178 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/propfolio-landing  # Replace with your GitHub repo
+  branch: main
+
+# Local development — uncomment the line below to test CMS without GitHub auth
+# local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+
+  # ===========================
+  # HERO SECTION
+  # ===========================
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - name: "hero"
+        label: "Hero Content"
+        file: "content/hero.json"
+        fields:
+          - { name: "badge_text", label: "Badge Text", widget: "string", default: "Only {spots} of 100 early bird spots left", hint: "Use {spots} as placeholder for the dynamic spots counter" }
+          - { name: "headline_line1", label: "Headline Line 1", widget: "string", default: "Manage more properties." }
+          - { name: "headline_line2", label: "Headline Line 2", widget: "string", default: "In less time." }
+          - { name: "headline_line3", label: "Headline Line 3", widget: "string", default: "Across " }
+          - { name: "headline_highlight", label: "Headline Highlight (green text)", widget: "string", default: "any border." }
+          - { name: "description", label: "Hero Description", widget: "text", default: "Propfolio brings AI-powered contracts, automated payments, and seamless tenant workflows into one platform—whether you manage 5 units or 500, locally or globally." }
+          - { name: "form_title", label: "Form Title", widget: "string", default: "Get early access" }
+          - { name: "form_subtitle", label: "Form Subtitle", widget: "string", default: "Lock in 20% off—for life—as one of our first 100 members." }
+          - { name: "submit_button_text", label: "Submit Button Text", widget: "string", default: "Claim My Spot" }
+          - { name: "form_footer", label: "Form Footer Text", widget: "string", default: "Launching Q2 2026 · No credit card required · Unsubscribe anytime" }
+
+  # ===========================
+  # SUCCESS STATE
+  # ===========================
+  - name: "success"
+    label: "Success Message"
+    files:
+      - name: "success"
+        label: "Post-Signup Success"
+        file: "content/success.json"
+        fields:
+          - { name: "title", label: "Success Title", widget: "string", default: "You're on the list, {name}!", hint: "Use {name} as placeholder for the user's first name" }
+          - { name: "text", label: "Success Text", widget: "string", default: "We'll be in touch before launch. Share your link to climb the leaderboard." }
+
+  # ===========================
+  # SOCIAL PROOF
+  # ===========================
+  - name: "social_proof"
+    label: "Social Proof"
+    files:
+      - name: "social_proof"
+        label: "Partners & Advisors"
+        file: "content/social-proof.json"
+        fields:
+          - { name: "label", label: "Section Label", widget: "string", default: "Backed by leading advisors and early partners" }
+          - name: "logos"
+            label: "Logos"
+            widget: "list"
+            fields:
+              - { name: "name", label: "Company Name", widget: "string" }
+              - { name: "type", label: "Type (e.g. Advisor, Pilot Partner)", widget: "string" }
+
+  # ===========================
+  # FEATURES
+  # ===========================
+  - name: "features"
+    label: "Features Section"
+    files:
+      - name: "features"
+        label: "Features"
+        file: "content/features.json"
+        fields:
+          - { name: "headline", label: "Section Headline", widget: "string", default: "One platform. Every property. Zero chaos." }
+          - { name: "subheadline", label: "Section Subheadline", widget: "string", default: "Everything you need to scale your property business—without the spreadsheet chaos." }
+          - name: "items"
+            label: "Feature Cards"
+            widget: "list"
+            fields:
+              - { name: "icon", label: "Icon SVG", widget: "text", hint: "Paste the full SVG markup for the feature icon" }
+              - { name: "title", label: "Feature Title", widget: "string" }
+              - { name: "description", label: "Feature Description", widget: "text" }
+
+  # ===========================
+  # REFERRAL SECTION
+  # ===========================
+  - name: "referral"
+    label: "Referral Section"
+    files:
+      - name: "referral"
+        label: "Referral Content"
+        file: "content/referral.json"
+        fields:
+          - { name: "badge_text", label: "Badge Text", widget: "string", default: "Referral Program" }
+          - { name: "headline", label: "Headline", widget: "string", default: "Want 50% off " }
+          - { name: "headline_highlight", label: "Headline Highlight (green text)", widget: "string", default: "for life?" }
+          - { name: "description", label: "Description", widget: "text", default: "The top 5 waitlist members who refer the most signups before launch will lock in 50% off Propfolio forever. Share your unique link after signing up and start climbing the leaderboard." }
+          - { name: "footnote", label: "Footnote", widget: "string", default: "Already on the list? Check your email for your personal referral link." }
+
+  # ===========================
+  # LEADERBOARD
+  # ===========================
+  - name: "leaderboard"
+    label: "Leaderboard Section"
+    files:
+      - name: "leaderboard"
+        label: "Leaderboard Content"
+        file: "content/leaderboard.json"
+        fields:
+          - { name: "headline", label: "Section Headline", widget: "string", default: "Referral Leaderboard" }
+          - { name: "subheadline", label: "Section Subheadline", widget: "string", default: "See who's leading the race for 50% off for life. Will you make the top 5?" }
+          - { name: "footer_text", label: "Footer Text", widget: "string", default: "{referrals} referrals from {signups} waitlisters so far. Join now to start climbing!", hint: "Use {referrals} and {signups} for dynamic numbers" }
+
+  # ===========================
+  # FAQ
+  # ===========================
+  - name: "faq"
+    label: "FAQ Section"
+    files:
+      - name: "faq"
+        label: "FAQ"
+        file: "content/faq.json"
+        fields:
+          - { name: "headline", label: "Section Headline", widget: "string", default: "Questions? We've got answers." }
+          - name: "items"
+            label: "FAQ Items"
+            widget: "list"
+            fields:
+              - { name: "question", label: "Question", widget: "string" }
+              - { name: "answer", label: "Answer", widget: "text" }
+
+  # ===========================
+  # SECONDARY CTA
+  # ===========================
+  - name: "cta"
+    label: "Secondary CTA"
+    files:
+      - name: "cta"
+        label: "CTA Section"
+        file: "content/cta.json"
+        fields:
+          - { name: "headline", label: "CTA Headline", widget: "string", default: "Ready to simplify your property management?" }
+          - { name: "button_text", label: "Button Text", widget: "string", default: "Join the Waitlist" }
+
+  # ===========================
+  # FOOTER
+  # ===========================
+  - name: "footer"
+    label: "Footer"
+    files:
+      - name: "footer"
+        label: "Footer Content"
+        file: "content/footer.json"
+        fields:
+          - { name: "copyright", label: "Copyright Text", widget: "string", default: "2026 Propfolio. All rights reserved." }
+          - name: "links"
+            label: "Footer Links"
+            widget: "list"
+            fields:
+              - { name: "label", label: "Link Text", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+
+  # ===========================
+  # SEO / META
+  # ===========================
+  - name: "seo"
+    label: "SEO & Meta"
+    files:
+      - name: "seo"
+        label: "Page Meta"
+        file: "content/seo.json"
+        fields:
+          - { name: "title", label: "Page Title", widget: "string", default: "Propfolio — Property Management, Simplified" }
+          - { name: "description", label: "Meta Description", widget: "text", default: "Propfolio brings AI-powered contracts, automated payments, and seamless tenant workflows into one platform—whether you manage 5 units or 500, locally or globally." }
+          - { name: "og_title", label: "OG Title", widget: "string", default: "Propfolio — Property Management, Simplified" }
+          - { name: "og_description", label: "OG Description", widget: "text", default: "AI-powered contracts, automated payments, and seamless tenant workflows in one platform. Join the waitlist for early access." }
