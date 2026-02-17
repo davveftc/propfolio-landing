@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propfolio — Property Management, Simplified</title>
+    <meta name="description" content="Propfolio brings AI-powered contracts, automated payments, and seamless tenant workflows into one platform—whether you manage 5 units or 500, locally or globally.">
+    <meta name="keywords" content="property management, AI, contracts, payments, tenant management, real estate, rental management">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Propfolio — Property Management, Simplified">
+    <meta property="og:description" content="AI-powered contracts, automated payments, and seamless tenant workflows in one platform. Join the waitlist for early access.">
+    <meta property="og:url" content="https://trypropfolio.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Propfolio — Property Management, Simplified">
+    <meta name="twitter:description" content="AI-powered contracts, automated payments, and seamless tenant workflows in one platform.">
+
+    <!-- Fonts — Design System: Satoshi (primary) + Roboto Mono (code) -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="Propfolio Home">
+                <img src="logo.svg" alt="Propfolio" class="logo-img">
+            </a>
+            <a href="#waitlist-form" class="nav-cta">Join the Waitlist</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="waitlist-form">
+        <div class="hero-content">
+            <div class="urgency-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+                <span>Only <strong id="spots-remaining">87</strong> of 100 early bird spots left</span>
+            </div>
+            <h1>Manage more properties.<br>In less time.<br>Across <span class="highlight">any border.</span></h1>
+            <p class="hero-description">Propfolio brings AI-powered contracts, automated payments, and seamless tenant workflows into one platform—whether you manage 5 units or 500, locally or globally.</p>
+        </div>
+
+        <div class="form-card">
+            <div id="signup-form-container">
+                <h3 class="form-title">Get early access</h3>
+                <p class="form-subtitle">Lock in 20% off—for life—as one of our first 100 members.</p>
+
+                <form id="waitlist-form-element" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="portfolioSize">Portfolio Size</label>
+                            <select id="portfolioSize" name="portfolioSize" required>
+                                <option value="" disabled selected>How many units?</option>
+                                <option value="1-10">1–10 units</option>
+                                <option value="11-50">11–50 units</option>
+                                <option value="51-200">51–200 units</option>
+                                <option value="200+">200+ units</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="companySize">Company Size</label>
+                            <select id="companySize" name="companySize" required>
+                                <option value="" disabled selected>Team size</option>
+                                <option value="just-me">Just me</option>
+                                <option value="2-10">2–10 people</option>
+                                <option value="11-50">11–50 people</option>
+                                <option value="50+">50+ people</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" required>
+                                <option value="" disabled selected>Where are you based?</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="ES">Spain</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="KE">Kenya</option>
+                                <option value="GH">Ghana</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="AU">Australia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="SG">Singapore</option>
+                                <option value="MX">Mexico</option>
+                                <option value="BR">Brazil</option>
+                                <option value="CO">Colombia</option>
+                                <option value="OTHER">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span class="btn-text">Claim My Spot</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"/>
+                            <path d="m12 5 7 7-7 7"/>
+                        </svg>
+                        <span class="spinner"></span>
+                    </button>
+                    <div class="form-error-message" id="form-error-message"></div>
+                </form>
+                <p class="form-footer">Launching Q2 2026 · No credit card required · Unsubscribe anytime</p>
+            </div>
+
+            <!-- Success State -->
+            <div class="form-success" id="form-success">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <h3 class="success-title">You're on the list, <span id="user-name">there</span>!</h3>
+                <p class="success-text">We'll be in touch before launch. Share your link to climb the leaderboard.</p>
+
+                <div class="referral-box">
+                    <input type="text" id="referral-link" value="" readonly>
+                    <button class="copy-btn" id="copy-btn">Copy</button>
+                </div>
+
+                <div class="share-buttons">
+                    <button class="share-btn" title="Share on LinkedIn" onclick="shareLinkedIn()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn" title="Share on X" onclick="shareTwitter()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn" title="Share on WhatsApp" onclick="shareWhatsApp()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn" title="Share via Email" onclick="shareEmail()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof fade-in">
+        <p class="social-proof-label">Backed by leading advisors and early partners</p>
+        <div class="logos-grid">
+            <div class="logo-item">
+                <span class="logo-placeholder">Traction Ventures</span>
+                <span class="logo-type">Advisor</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-placeholder">Voltron Capital</span>
+                <span class="logo-type">Advisor</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-placeholder">Elyon Investments</span>
+                <span class="logo-type">Advisor</span>
+            </div>
+            <div class="logo-item">
+                <span class="logo-placeholder">Estate Links</span>
+                <span class="logo-type">Pilot Partner</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-header fade-in">
+            <h2>One platform. Every property. Zero chaos.</h2>
+            <p>Everything you need to scale your property business—without the spreadsheet chaos.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <path d="m10 13 2 2 4-4"/>
+                    </svg>
+                </div>
+                <h3>AI-Powered Templates</h3>
+                <p>Generate contracts and forms in seconds—customized to your property type and local regulations.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                        <path d="M9 22v-4h6v4"/>
+                        <path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/>
+                        <path d="M12 10h.01"/><path d="M12 14h.01"/>
+                        <path d="M16 10h.01"/><path d="M16 14h.01"/>
+                        <path d="M8 10h.01"/><path d="M8 14h.01"/>
+                    </svg>
+                </div>
+                <h3>Any Property, Any Term</h3>
+                <p>Short-term rentals, long-term leases, commercial—manage them all from a single dashboard.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                    </svg>
+                </div>
+                <h3>Seamless Onboarding</h3>
+                <p>Invite tenants, guests, and property owners with frictionless digital workflows.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                </div>
+                <h3>Request Tracking</h3>
+                <p>Maintenance requests, tenant inquiries, owner approvals—tracked and organized automatically.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="14" x="2" y="5" rx="2"/>
+                        <line x1="2" x2="22" y1="10" y2="10"/>
+                    </svg>
+                </div>
+                <h3>Automated Payments</h3>
+                <p>Record, track, and reconcile payments without the spreadsheet gymnastics.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                        <path d="M2 12h20"/>
+                    </svg>
+                </div>
+                <h3>Multi-Country Ready</h3>
+                <p>Expand your portfolio across borders with localized support, currencies, and compliance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Section -->
+    <section class="referral-section fade-in">
+        <div class="referral-content">
+            <span class="referral-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+                    <path d="M12 18V6"/>
+                </svg>
+                Referral Program
+            </span>
+            <h2>Want 50% off <span class="highlight">for life?</span></h2>
+            <p>The top 5 waitlist members who refer the most signups before launch will lock in <strong>50% off Propfolio forever</strong>. Share your unique link after signing up and start climbing the leaderboard.</p>
+            <p class="small">Already on the list? Check your email for your personal referral link.</p>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-section fade-in" id="leaderboard">
+        <div class="section-header">
+            <h2>Referral Leaderboard</h2>
+            <p>See who's leading the race for 50% off for life. Will you make the top 5?</p>
+        </div>
+
+        <div class="leaderboard-container">
+            <div class="leaderboard-header">
+                <h3>
+                    <svg class="trophy-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 15c-1.93 0-3.5-1.57-3.5-3.5V7h7v4.5c0 1.93-1.57 3.5-3.5 3.5zm7-11H5V2h14v2zm-2.5 2h-9v4.5C7.5 12.43 9.07 14 11 14h2c1.93 0 3.5-1.57 3.5-3.5V6zM4 6H2v5c0 2.21 1.79 4 4 4h1.5c-.32-.62-.5-1.29-.5-2v-.5H6c-1.1 0-2-.9-2-2V6zm16 0h-2v4.5c0 1.1-.9 2-2 2h-.5v.5c0 .71-.18 1.38-.5 2H17c2.21 0 4-1.79 4-4V6zM12 17c-1.1 0-2 .9-2 2v3h4v-3c0-1.1-.9-2-2-2zm-4 5h8v-3c0-1.66-1.34-3-3-3h-2c-1.66 0-3 1.34-3 3v3z"/>
+                    </svg>
+                    Top Referrers
+                </h3>
+                <div class="leaderboard-live">
+                    <span class="live-dot"></span>
+                    Updated live
+                </div>
+            </div>
+
+            <ul class="leaderboard-list" id="leaderboard-list">
+                <li class="leaderboard-item top-five">
+                    <div class="leaderboard-rank">1</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">SA</div>
+                        <div class="user-info">
+                            <span class="user-name">Sarah A.<span class="top-badge">50% OFF</span></span>
+                            <span class="user-joined">Joined Dec 15</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">47</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item top-five">
+                    <div class="leaderboard-rank">2</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">MK</div>
+                        <div class="user-info">
+                            <span class="user-name">Michael K.<span class="top-badge">50% OFF</span></span>
+                            <span class="user-joined">Joined Dec 18</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">38</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item top-five">
+                    <div class="leaderboard-rank">3</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">JO</div>
+                        <div class="user-info">
+                            <span class="user-name">James O.<span class="top-badge">50% OFF</span></span>
+                            <span class="user-joined">Joined Dec 20</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">31</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item top-five">
+                    <div class="leaderboard-rank">4</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">EN</div>
+                        <div class="user-info">
+                            <span class="user-name">Emma N.<span class="top-badge">50% OFF</span></span>
+                            <span class="user-joined">Joined Dec 22</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">28</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item top-five">
+                    <div class="leaderboard-rank">5</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">DT</div>
+                        <div class="user-info">
+                            <span class="user-name">David T.<span class="top-badge">50% OFF</span></span>
+                            <span class="user-joined">Joined Dec 24</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">24</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item">
+                    <div class="leaderboard-rank">6</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">LP</div>
+                        <div class="user-info">
+                            <span class="user-name">Lisa P.</span>
+                            <span class="user-joined">Joined Dec 26</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">19</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item">
+                    <div class="leaderboard-rank">7</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">RB</div>
+                        <div class="user-info">
+                            <span class="user-name">Robert B.</span>
+                            <span class="user-joined">Joined Dec 28</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">15</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item">
+                    <div class="leaderboard-rank">8</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">AC</div>
+                        <div class="user-info">
+                            <span class="user-name">Amanda C.</span>
+                            <span class="user-joined">Joined Dec 30</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">12</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item">
+                    <div class="leaderboard-rank">9</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">CW</div>
+                        <div class="user-info">
+                            <span class="user-name">Chris W.</span>
+                            <span class="user-joined">Joined Jan 2</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">9</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+                <li class="leaderboard-item">
+                    <div class="leaderboard-rank">10</div>
+                    <div class="leaderboard-user">
+                        <div class="user-avatar">NF</div>
+                        <div class="user-info">
+                            <span class="user-name">Nancy F.</span>
+                            <span class="user-joined">Joined Jan 3</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-stats">
+                        <span class="referral-count">7</span>
+                        <span class="referral-label">referrals</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="leaderboard-footer">
+                <p><strong>223 referrals</strong> from <strong>87 waitlisters</strong> so far. Join now to start climbing!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="section-header fade-in">
+            <h2>Questions? We've got answers.</h2>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                When does Propfolio launch?
+                <span class="faq-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    We're targeting Q2 2026. Waitlist members will get first access before we open to the public.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                What does the 20% lifetime discount include?
+                <span class="faq-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    The first 100 people on the waitlist lock in 20% off all paid plans—forever. It applies automatically when you upgrade after launch.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                How does the referral program work?
+                <span class="faq-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    After joining the waitlist, you'll receive a unique referral link via email. The 5 people who refer the most waitlist signups by launch day will receive 50% off for life.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                What property types does Propfolio support?
+                <span class="faq-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Short-term rentals, long-term residential leases, vacation properties, and commercial units. If you manage it, Propfolio can handle it.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                Can I manage properties in multiple countries?
+                <span class="faq-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Absolutely. Propfolio is built for multi-country portfolios with localized currency, language, and compliance support from day one.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <button class="faq-question">
+                Is my data secure?
+                <span class="faq-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Yes. We follow industry-standard encryption and security practices to keep your data safe. More details will be available at launch.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondary CTA -->
+    <section class="secondary-cta fade-in">
+        <h2>Ready to simplify your property management?</h2>
+        <a href="#waitlist-form" class="cta-btn">
+            Join the Waitlist
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.svg" alt="Propfolio" class="logo-img">
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Propfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
