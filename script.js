@@ -91,10 +91,67 @@ form.querySelectorAll('input, select').forEach(field => {
     });
 });
 
+// --- Security: Rate Limiting ---
+const RATE_LIMIT_MS = 60000; // 60 seconds between submissions
+
+function isRateLimited() {
+    const lastSubmit = localStorage.getItem('propfolio_last_submit');
+    if (!lastSubmit) return false;
+    return (Date.now() - parseInt(lastSubmit, 10)) < RATE_LIMIT_MS;
+}
+
+function setRateLimitTimestamp() {
+    localStorage.setItem('propfolio_last_submit', Date.now().toString());
+}
+
+// --- Security: Honeypot Check ---
+function isHoneypotFilled() {
+    const honeypot = document.getElementById('website');
+    return honeypot && honeypot.value.length > 0;
+}
+
+// --- Security: HTML Escaping for XSS Prevention ---
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+}
+
 // --- Form Submission ---
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     errorMessage.classList.remove('visible');
+
+    // Security: honeypot check — silently reject bots
+    if (isHoneypotFilled()) {
+        // Fake success to confuse bots
+        formContainer.style.display = 'none';
+        formSuccess.classList.add('active');
+        return;
+    }
+
+    // Security: rate limiting — prevent spam submissions
+    if (isRateLimited()) {
+        errorMessage.textContent = 'Please wait a moment before submitting again.';
+        errorMessage.classList.add('visible');
+        return;
+    }
+
+    // Security: duplicate submission check
+    const existingSubmission = localStorage.getItem('propfolio_waitlist');
+    if (existingSubmission) {
+        try {
+            const data = JSON.parse(existingSubmission);
+            userNameSpan.textContent = data.name;
+            referralInput.value = `${window.location.origin}?ref=${data.referralCode}`;
+            formContainer.style.display = 'none';
+            formSuccess.classList.add('active');
+            return;
+        } catch {
+            // Corrupted data, allow re-submission
+            localStorage.removeItem('propfolio_waitlist');
+        }
+    }
 
     if (!validateForm()) {
         errorMessage.textContent = 'Please fill in all required fields correctly.';
@@ -140,6 +197,9 @@ form.addEventListener('submit', async (e) => {
         if (currentSpots > 1) {
             spotsEl.textContent = currentSpots - 1;
         }
+
+        // Security: set rate limit timestamp
+        setRateLimitTimestamp();
 
         // Store submission in localStorage to prevent duplicate signups
         localStorage.setItem('propfolio_waitlist', JSON.stringify({
@@ -276,23 +336,28 @@ const fallbackLeaderboard = [
 function renderLeaderboard(entries, totalReferrals, totalSignups) {
     if (!leaderboardList || entries.length === 0) return;
 
+    // Security: escape all user-provided data to prevent XSS
     leaderboardList.innerHTML = entries.map((entry, i) => {
         const rank = i + 1;
         const isTopFive = rank <= 5;
         const topBadge = isTopFive ? '<span class="top-badge">50% OFF</span>' : '';
+        const safeInitials = escapeHtml(String(entry.initials || ''));
+        const safeName = escapeHtml(String(entry.name || ''));
+        const safeJoined = escapeHtml(String(entry.joined || ''));
+        const safeReferrals = escapeHtml(String(entry.referrals || '0'));
 
         return `
             <li class="leaderboard-item${isTopFive ? ' top-five' : ''}">
                 <div class="leaderboard-rank">${rank}</div>
                 <div class="leaderboard-user">
-                    <div class="user-avatar">${entry.initials}</div>
+                    <div class="user-avatar">${safeInitials}</div>
                     <div class="user-info">
-                        <span class="user-name">${entry.name}${topBadge}</span>
-                        <span class="user-joined">${entry.joined}</span>
+                        <span class="user-name">${safeName}${topBadge}</span>
+                        <span class="user-joined">${safeJoined}</span>
                     </div>
                 </div>
                 <div class="leaderboard-stats">
-                    <span class="referral-count">${entry.referrals}</span>
+                    <span class="referral-count">${safeReferrals}</span>
                     <span class="referral-label">referrals</span>
                 </div>
             </li>
@@ -300,7 +365,9 @@ function renderLeaderboard(entries, totalReferrals, totalSignups) {
     }).join('');
 
     if (leaderboardFooter) {
-        leaderboardFooter.innerHTML = `<strong>${totalReferrals} referrals</strong> from <strong>${totalSignups} waitlisters</strong> so far. Join now to start climbing!`;
+        const safeTotal = escapeHtml(String(totalReferrals || '0'));
+        const safeSignups = escapeHtml(String(totalSignups || '0'));
+        leaderboardFooter.innerHTML = `<strong>${safeTotal} referrals</strong> from <strong>${safeSignups} waitlisters</strong> so far. Join now to start climbing!`;
     }
 }
 

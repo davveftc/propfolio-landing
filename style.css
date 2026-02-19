@@ -1199,6 +1199,11 @@ footer {
         padding-top: 112px;
     }
 
+    /* Keep form labels left-aligned despite hero centering */
+    .form-card {
+        text-align: left;
+    }
+
     .hero-description {
         margin: 0 auto var(--space-xl);
     }
